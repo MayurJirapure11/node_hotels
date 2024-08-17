@@ -16,6 +16,8 @@ app.use('/person',personRoutes)
 const menuRoutes = require('./routes/menuRoutes.js')
 app.use('/menu',menuRoutes)
 
+//for testing
+
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
