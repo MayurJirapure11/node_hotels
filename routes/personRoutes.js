@@ -16,7 +16,7 @@ router.post("/signup",async (req, res) => {
         id : response.id ,
         username : responce.username 
       }
-
+      console.log(JSON.stringify(payload)) ;
       const token = generateToken(payload);
       console.log("Token is: ",token)
 
@@ -56,17 +56,6 @@ router.post('/login',async(req,res) => {
   }
 })
 
-
-router.get('/', jwtAuthMiddleware, async (req, res) =>{
-  try{
-      const data = await Person.find();
-      console.log('data fetched');
-      res.status(200).json(data);
-  }catch(err){
-      console.log(err);
-      res.status(500).json({error: 'Internal Server Error'});
-  }
-})
 
 router.get('/profile', jwtAuthMiddleware, async (req, res) => {
   try{
